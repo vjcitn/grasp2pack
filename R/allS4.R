@@ -41,13 +41,24 @@ setGeneric("loadResults",
 setMethod("loadResults", c("g2reg", "ANY", "character", "logical",
    "character", "logical"),
   function (reg, ids, part = NA_character_, simplify=FALSE, use.names="ids", missing.ok = FALSE) {
+#
+# return a list, as in BatchJobs
+#
   ans = BatchJobs::loadResults(reg, ids, part, simplify, use.names, missing.ok)
-  ans = GenomicRanges::unlist(GRangesList(ans))
-  seqlevelsStyle(ans) = "UCSC"
-  sn = seqlevels(ans)
-  seqinfo(ans) = hg19si()[sn]
-  new("g2GRanges", ans)
+  bplapply(ans, function(x) {
+      seqlevelsStyle(x) = "UCSC"
+      sn = seqlevels(x)
+      seqinfo(x) = hg19si()[sn]
+      names(x) = NULL
+      new("g2GRanges", x)
+      })
   })
+#  ans = GenomicRanges::unlist(GRangesList(ans))
+#  seqlevelsStyle(ans) = "UCSC"
+#  sn = seqlevels(ans)
+#  seqinfo(ans) = hg19si()[sn]
+#  new("g2GRanges", ans)
+#  })
 
 setMethod("loadResults", c("g2reg", "ANY", "missing", "missing", "missing",
     "missing"),

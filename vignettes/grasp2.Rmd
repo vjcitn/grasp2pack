@@ -54,10 +54,8 @@ names(descIndex)[1:7]
 How can we find all GRASP loci corresponding to a given description,
 for example "`r names(descIndex)[6]`"?
 ```{r lkaaa,cache=TRUE}
-n1 = loadResults(GRASP2, descIndex[[6]])
-aaa = n1[ which(n1$PaperPhenotypeDescription == names(descIndex)[6]) ]
+aaa = selectByPapPheDescs( "Abdominal aortic aneurysm" ) 
 aaa
-table(aaa$Phenotype)
 ```
 
 As a sanity check, we can compare contents of the NHGRI GWAS catalog
