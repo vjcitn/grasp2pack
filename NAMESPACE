@@ -1,5 +1,6 @@
 
 exportPattern("..*")
+exportMethods("loadResult", "loadResults")
 
 # seqinfo handling
 
