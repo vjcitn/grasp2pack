@@ -1,10 +1,11 @@
 Package: grasp2pack
 Title: interface to GRASP 2.0 in shards
-Version: 0.0.0
+Version: 0.0.1
 Author: VJ Carey <stvjc@channing.harvard.edu>
 Description: interface to GRASP 2.0 in shards
 Suggests: 
 Depends: BatchJobs, GenomicRanges
+Imports: BiocParallel
 Maintainer: VJ Carey <stvjc@channing.harvard.edu>
 License: Private
 LazyLoad: yes
