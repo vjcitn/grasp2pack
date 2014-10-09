@@ -36,9 +36,20 @@ GRASP includes all available genetic association results from papers, their supp
 
 # Demonstration
 
+Attach the package.
+
 ```{r loadup,results="hide", echo=FALSE}
 suppressPackageStartupMessages(library(grasp2pack))
 detach("package:grasp2pack", unload=TRUE)
 ```{r loadup2}
 suppressPackageStartupMessages(library(grasp2pack))
 ```
+
+We'll skip over details and illustrate a query.  We have a list of
+'paper phenotype description' tags curated by the GRASP team.
+```{r lkin}
+data(descIndex)
+names(descIndex)[1:7]
+```
+How can we find all GRASP loci corresponding to a given description,
+for example `r names(descIndex)[6]`?
