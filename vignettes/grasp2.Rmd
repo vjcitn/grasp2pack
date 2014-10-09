@@ -1,0 +1,44 @@
+
+---
+title: "Using the NHLBI GRASP repository of GWAS test results with Bioconductor"
+author: "Vincent J. Carey, Andrew D. Johnson et al."
+date: "October 9, 2014"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    highlight: pygments
+    number_sections: yes
+    theme: united
+    toc: no
+---
+<!--
+%\VignetteEngine{knitr::rmarkdown}
+%\VignetteIndexEntry{grasp2pack: interface to a high density GWAS catalogue}
+-->
+
+# Introduction
+
+GRASP (Genome-Wide Repository of Associations Between SNPs and Phenotypes) v2.0
+was released in September 2014.  The [primary GRASP web resource](http://apps.nhlbi.nih.gov/Grasp/Overview.aspx) includes links to
+a web-based query interface.  This document describes a Bioconductor package
+that replicates information in the v2.0 [textual release](https://s3.amazonaws.com/NHLBI_Public/GRASP/GraspFullDataset2.zip). 
+
+From the main web page: 
+
+GRASP includes all available genetic association results from papers, their supplements and web-based content meeting the following guidelines:
+
+* All associations with P<0.05 from GWAS defined as >= 25,000 markers tested for 1 or more traits.
+
+* Study exclusion criteria: CNV-only studies, replication/follow-up studies testing <25K markers, non-human only studies, article not in English, gene-environment or gene-gene GWAS where single SNP main effects are not given, linkage only studies, aCGH/LOH only studies, heterozygosity/homozygosity (genome-wide or long run) studies, studies only presenting gene-based or pathway-based results, simulation-only studies, studies which we judge as redundant with prior studies since they do not provide significant inclusion of new samples or exposure of new results (e.g., many methodological papers on the WTCCC and FHS GWAS).
+
+* More detailed methods and resources used in constructing the catalog are described at [Methods & Resources](http://apps.nhlbi.nih.gov/Grasp/Resources.aspx).
+
+# Demonstration
+
+```{r loadup,results="hide", echo=FALSE}
+suppressPackageStartupMessages(library(grasp2pack))
+detach("package:grasp2pack", unload=TRUE)
+```{r loadup2}
+suppressPackageStartupMessages(library(grasp2pack))
+```

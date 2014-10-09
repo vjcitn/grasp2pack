@@ -1,2 +1,8 @@
 
 exportPattern("..*")
+
+importClassesFrom(GenomeInfoDb, Seqinfo)
+importMethodsFrom(GenomeInfoDb, "seqinfo<-")
+importFrom(GenomeInfoDb, "seqinfo<-")
+importFrom(GenomeInfoDb, "seqlevelsStyle")
+
