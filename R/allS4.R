@@ -28,7 +28,7 @@ setMethod("loadResult", c("g2reg", "ANY", "missing", "missing"),
 setClass("g2GRanges", contains="GRanges")
 
 setMethod("show", "g2GRanges", function(object) {
-  cat(paste0("GRASP2 shard: find additional fields with names(mcol(...))\n"))
+  cat(paste0("GRASP2 ranges: find additional fields with names(mcol(...))\n"))
   cat(" \n")
   cols2show = c("SNPid.dbSNP134.", "PMID", "Pvalue")
   show(as(object[, cols2show], "GRanges"))
